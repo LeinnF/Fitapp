@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 let target = {
     cal: 3000,
     protein: 150,
@@ -176,3 +167,4 @@ function loadData() {
 }
 
 window.onload = loadData;
+

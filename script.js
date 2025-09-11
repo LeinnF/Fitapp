@@ -1,3 +1,50 @@
+let deferredPrompt;
+
+// Android PWA (Chrome) için
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('installBanner').classList.remove('hidden');
+});
+
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`Kullanıcı seçimi: ${outcome}`);
+    deferredPrompt = null;
+    document.getElementById('installBanner').classList.add('hidden');
+  } else {
+    // iOS veya desteklenmeyen tarayıcılar
+    alert("iOS cihazlarda, Safari üzerinden paylaş → 'Ana Ekrana Ekle' kullanın.");
+  }
+});
+
+// iOS için kontrol
+function isIos() {
+  return /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+
+function isInStandaloneMode() {
+  return ('standalone' in window.navigator) && window.navigator.standalone;
+}
+
+// iOS için banner göster
+if (isIos() && !isInStandaloneMode()) {
+  const banner = document.getElementById('installBanner');
+  banner.classList.remove('hidden');
+  document.getElementById('installBtn').addEventListener('click', () => {
+    alert("📲 iOS cihazlarda:\n1. Safari'de açın\n2. Paylaş simgesine dokunun\n3. 'Ana Ekrana Ekle' seçeneğini seçin");
+  });
+}
+
+
+
+
+
+
+
+
 let target = {
     cal: 3000,
     protein: 150,
@@ -167,4 +214,3 @@ function loadData() {
 }
 
 window.onload = loadData;
-

@@ -1,6 +1,6 @@
 {
   "name": "Fitness Tracker",
-  "short_name": "Fitness",
+  "short_name": "Fitapp",
   "description": "Günlük besin ve su takibi",
   "start_url": "./index.html",
   "display": "standalone",
@@ -19,6 +19,7 @@
     }
   ]
 }
+
 
 
 

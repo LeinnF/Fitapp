@@ -23,7 +23,6 @@ const presetFoods = {
     'Protein Tozu': {cal: 85, protein: 18.3, carb: 1.9, fat: 0.3},
     'Tost': {cal: 920, protein: 44.5, carb: 99, fat: 39},
     'Tam Döner': {cal: 680, protein: 32, carb: 203, fat: 13},
-'Makarna': {cal: 395, protein: 14.5, carb: 77, fat: 2.3}
     'Nescafe 3ü1': {cal: 81, protein: 0.51, carb: 15.6, fat: 1.94},
     'Creatin': {cal: 0, protein: 0, carb: 0, fat: 0}
 

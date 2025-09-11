@@ -133,15 +133,15 @@ function updateTable(selectedDate) {
     if (!allData[selectedDate]) return;
 
     allData[selectedDate].foodData.forEach((food, index) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${food.name}</td>
-            <td>${food.cal}</td>
-            <td>${food.protein.toFixed(1)}</td>
-            <td>${food.carb.toFixed(1)}</td>
-            <td>${food.fat.toFixed(1)}</td>
-            <td><button onclick="removeFood(${index})">Sil</button></td>
-        `;
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td data-label="Besin">${food.name}</td>
+        <td data-label="Kalori">${food.cal}</td>
+        <td data-label="Protein">${food.protein}</td>
+        <td data-label="Karbonhidrat">${food.carb}</td>
+        <td data-label="Yağ">${food.fat}</td>
+        <td data-label="İşlem"><button onclick="removeFood(${index})">Sil</button></td>
+    `;
         tbody.appendChild(row);
         totalCal += food.cal;
         totalProtein += food.protein;
@@ -167,3 +167,4 @@ function loadData() {
 }
 
 window.onload = loadData;
+

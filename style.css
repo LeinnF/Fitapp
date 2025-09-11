@@ -5,6 +5,7 @@ body {
     padding: 0;
     background: linear-gradient(to bottom, #f0f2f5, #e0e3e8);
     color: #333;
+    touch-action: manipulation;
 }
 
 /* Main */
@@ -192,3 +193,4 @@ tr:hover {
         text-align: left;
     }
 }
+

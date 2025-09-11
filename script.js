@@ -1,7 +1,7 @@
 let target = {
-    cal: 3000,
+    cal: 2700,
     protein: 150,
-    carb: 500,
+    carb: 350,
     fat: 70,
     water: 4
 };
@@ -168,4 +168,5 @@ function loadData() {
 }
 
 window.onload = loadData;
+
 

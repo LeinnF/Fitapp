@@ -24,7 +24,8 @@ const presetFoods = {
     'Tost': {cal: 920, protein: 44.5, carb: 99, fat: 39},
     'Tam Döner': {cal: 680, protein: 32, carb: 203, fat: 13},
     'Nescafe 3ü1': {cal: 81, protein: 0.51, carb: 15.6, fat: 1.94},
-    'Creatin': {cal: 0, protein: 0, carb: 0, fat: 0}
+    'Creatin': {cal: 0, protein: 0, carb: 0, fat: 0},
+    'Makarna': {cal: 395, protein: 14.5, carb: 77.1, fat: 2.3},
 };
 
 document.getElementById('date-picker').value = today;
@@ -167,3 +168,4 @@ function loadData() {
 }
 
 window.onload = loadData;
+

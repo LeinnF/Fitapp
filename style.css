@@ -88,7 +88,6 @@ button:active {
     margin-top: 10px;
 }
 
-
 /* Table */
 table {
     width: 100%;
@@ -141,7 +140,7 @@ tr:hover {
     transition: width 0.5s ease;
 }
 
-/* Responsive */
+/* Mobil tablo uyumu - sadece günlük özet tablosu */
 @media screen and (max-width: 768px) {
     main {
         padding: 15px;
@@ -154,25 +153,42 @@ tr:hover {
         width: 100%;
         margin: 5px 0;
     }
-    table, thead, tbody, th, td, tr {
+
+    #summary-section table, 
+    #summary-section thead, 
+    #summary-section tbody, 
+    #summary-section th, 
+    #summary-section td, 
+    #summary-section tr {
         display: block;
     }
-    table tr {
-        margin-bottom: 15px;
+
+    #summary-section thead tr {
+        display: none; /* Başlık satırını gizle */
     }
-    table td {
-        text-align: right;
+
+    #summary-section tbody tr {
+        margin-bottom: 15px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    #summary-section td {
+        text-align: left;
         padding-left: 50%;
         position: relative;
+        border: none;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
-    table td::before {
+
+    #summary-section td::before {
         content: attr(data-label);
         position: absolute;
         left: 10px;
         width: 45%;
-        padding-left: 15px;
         font-weight: bold;
         text-align: left;
     }
 }
-

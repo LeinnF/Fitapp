@@ -34,8 +34,8 @@ section:hover {
 
 section h2 {
     margin-top: 0;
-    text-align: center;
-    color: #1e3a5f;
+    text-align: center; /* Ortala başlık */
+    color: #1e3a5f;     /* Koyu mavi başlık */
 }
 
 /* Input */
@@ -60,7 +60,7 @@ button {
     margin: 5px;
     border-radius: 8px;
     border: none;
-    background-color: #2a4d69;
+    background-color: #2a4d69; /* Lacivert */
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -73,7 +73,7 @@ button i {
 }
 
 button:hover {
-    background-color: #ff7f50;
+    background-color: #ff7f50; /* Turuncu hover */
     transform: scale(1.05);
 }
 
@@ -83,17 +83,12 @@ button:active {
 
 .water-buttons {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: center; /* yatay ortalama */
+    gap: 20px; /* butonlar arası boşluk */
     margin-top: 10px;
 }
 
 /* Table */
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -110,7 +105,7 @@ th, td {
 }
 
 th {
-    background-color: #1e3a5f;
+    background-color: #1e3a5f; /* Koyu mavi başlık */
     color: white;
 }
 
@@ -138,39 +133,62 @@ tr:hover {
     overflow: hidden;
 }
 .progress {
-    background: #ff7f50;
+    background: #ff7f50; /* Turuncu */
     height: 100%;
     border-radius: 10px;
     width: 0%;
     transition: width 0.5s ease;
 }
 
-/* Responsive */
+/* Mobil tablo uyumu - sadece günlük özet tablosu */
 @media screen and (max-width: 768px) {
-    main { padding: 15px; }
-    section { width: 90%; padding: 15px 20px; }
-    input { width: 100%; margin: 5px 0; }
-
-    /* Mobilde tabloyu kart tasarımına çevir */
-    table, thead, tbody, th, td, tr { display: block; }
-    thead { display: none; }
-    tbody tr {
-        margin-bottom: 15px;
-        background: #fff;
+    main {
         padding: 15px;
+    }
+    section {
+        width: 90%;
+        padding: 15px 20px;
+    }
+    input {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    #summary-section table, 
+    #summary-section thead, 
+    #summary-section tbody, 
+    #summary-section th, 
+    #summary-section td, 
+    #summary-section tr {
+        display: block;
+    }
+
+    #summary-section thead tr {
+        display: none; /* Başlık satırını gizle */
+    }
+
+    #summary-section tbody tr {
+        margin-bottom: 15px;
+        background-color: #f9f9f9;
         border-radius: 10px;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        padding: 10px;
     }
-    td {
-        padding: 8px 10px;
+
+    #summary-section td {
         text-align: left;
+        padding-left: 50%;
         position: relative;
+        border: none;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
-    td::before {
+
+    #summary-section td::before {
         content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
         font-weight: bold;
-        display: inline-block;
-        width: 120px;
+        text-align: left;
     }
-    td button { width: 100%; margin-top: 5px; }
 }

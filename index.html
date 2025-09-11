@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Tracker</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<main>
+    <section id="input-section">
+        <h2>Besin Girişi</h2>
+        <input type="text" id="food-name" placeholder="Besin Adı">
+        <input type="number" id="food-cal" placeholder="Kalori">
+        <input type="number" id="food-protein" placeholder="Protein (g)">
+        <input type="number" id="food-carb" placeholder="Karbonhidrat (g)">
+        <input type="number" id="food-fat" placeholder="Yağ (g)">
+        <button onclick="addFood()"><i class="fas fa-plus"></i> Ekle</button>
+    </section>
+
+    <section id="water-section">
+        <h2>Su (0.5L)</h2>
+<div class="water-buttons">
+        <button onclick="updateWater()"><i class="fas fa-tint"></i> +</button>
+        <button onclick="removeWater()"><i class="fas fa-tint"></i> -</button>
+</div>
+        <div class="progress-bar">
+            <div id="water-progress" class="progress"></div>
+        </div>
+    </section>
+
+    <section id="quick-food-section">
+        <h2>Hazır Besinler</h2>
+        <button onclick="addPresetFood('Pankek')"><i class="fas fa-bread-slice"></i> Pankek</button>
+<button onclick="addPresetFood('Tost')"><i class="fas fa-bread-slice"></i> Tost</button>
+        <button onclick="addPresetFood('Tam Döner')"><i class="fas fa-utensils"></i> Tam Döner</button>
+        <button onclick="addPresetFood('Nescafe 3ü1')"><i class="fas fa-mug-hot"></i> Nescafe 3’ü 1</button>
+        <button onclick="addPresetFood('Protein Tozu')"><i class="fas fa-dumbbell"></i> Protein Tozu</button>
+        <button onclick="addPresetFood('Creatin')"><i class="fas fa-dumbbell"></i> Creatin</button>
+    </section>
+
+    <section id="summary-section">
+        <h2>Günlük Özet</h2>
+        <input type="date" id="date-picker" onchange="changeDate()" value="">
+        <table>
+            <thead>
+                <tr>
+                    <th>Besin</th>
+                    <th>Kalori</th>
+                    <th>Protein</th>
+                    <th>Karbonhidrat</th>
+                    <th>Yağ</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody id="food-table-body"></tbody>
+        </table>
+        <p id="totals"></p>
+        <p id="remaining"></p>
+        <p id="water-total"></p>
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

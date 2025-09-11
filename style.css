@@ -1,0 +1,178 @@
+/* Genel body ve font */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f0f2f5, #e0e3e8);
+    color: #333;
+}
+
+/* Main */
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Section / Kartlar */
+section {
+    width: 100%;
+    max-width: 600px;
+    margin: 15px 0;
+    background-color: #ffffff;
+    padding: 20px 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+section h2 {
+    margin-top: 0;
+    text-align: center; /* Ortala başlık */
+    color: #1e3a5f;     /* Koyu mavi başlık */
+}
+
+/* Input */
+input {
+    margin: 5px 5px 5px 0;
+    padding: 8px;
+    width: 150px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1e3a5f;
+    box-shadow: 0 0 5px rgba(30,58,95,0.5);
+}
+
+/* Button */
+button {
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2a4d69; /* Lacivert */
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+button i {
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #ff7f50; /* Turuncu hover */
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.water-buttons {
+    display: flex;
+    justify-content: center; /* yatay ortalama */
+    gap: 20px; /* butonlar arası boşluk */
+    margin-top: 10px;
+}
+
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #1e3a5f; /* Koyu mavi başlık */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f2f5;
+}
+
+tr:hover {
+    background-color: #d9e2ef;
+}
+
+/* Kalan değerler ve toplam */
+#totals, #remaining, #water-total {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Progress bar */
+.progress-bar {
+    background: #ddd;
+    border-radius: 10px;
+    height: 20px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+}
+.progress {
+    background: #ff7f50; /* Turuncu */
+    height: 100%;
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+    section {
+        width: 90%;
+        padding: 15px 20px;
+    }
+    input {
+        width: 100%;
+        margin: 5px 0;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    table tr {
+        margin-bottom: 15px;
+    }
+    table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+

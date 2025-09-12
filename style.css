@@ -5,7 +5,7 @@ body {
     padding: 0;
     background: linear-gradient(to bottom, #f0f2f5, #e0e3e8);
     color: #333;
-    touch-action: manipulation;
+touch-action: manipulation;
 }
 
 /* Main */
@@ -118,6 +118,15 @@ tr:hover {
     background-color: #d9e2ef;
 }
 
+/* Tablodaki Porsiyon inputunu küçült */
+#food-table-body input[type="number"] {
+    width: 50px;       /* genişlik 50px */
+    padding: 3px 5px;  /* biraz iç boşluk */
+    font-size: 0.9rem; /* yazı boyutu biraz küçültüldü */
+    text-align: center; /* sayı ortalanır */
+}
+
+
 /* Kalan değerler ve toplam */
 #totals, #remaining, #water-total {
     margin-top: 10px;
@@ -193,4 +202,3 @@ tr:hover {
         text-align: left;
     }
 }
-

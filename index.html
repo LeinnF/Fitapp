@@ -12,7 +12,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="w.jpg">
-
 </head>
 <body>
 
@@ -24,23 +23,22 @@
         <input type="number" id="food-protein" placeholder="Protein (g)">
         <input type="number" id="food-carb" placeholder="Karbonhidrat (g)">
         <input type="number" id="food-fat" placeholder="Yağ (g)">
+        <input type="number" id="food-multiplier" placeholder="Kaç porsiyon?" value="1" min="1">
         <button onclick="addFood()"><i class="fas fa-plus"></i> Ekle</button>
     </section>
 
-    
     <section id="quick-food-section">
         <h2>Hazır Besinler</h2>
         <button onclick="addPresetFood('Pankek')"><i class="fas fa-bread-slice"></i> Pankek</button>
         <button onclick="addPresetFood('Tost')"><i class="fas fa-bread-slice"></i> Tost</button>
         <button onclick="addPresetFood('Tam Döner')"><i class="fas fa-utensils"></i> Tam Döner</button>
-        <button onclick="addPresetFood('Makarna')"><i class="fas fa-utensils"></i> Makarna</button>
+        <button onclick="addPresetFood('Makarna')"><i class="fas fa-utensils"></i> Makarna(250g)</button>
+        <button onclick="addPresetFood('Pilav')"><i class="fas fa-utensils"></i> Pilav(75g)</button>
+        <button onclick="addPresetFood('Tavuk')"><i class="fas fa-utensils"></i> Tavuk(100g)</button>
         <button onclick="addPresetFood('Yoğurt')"><i class="fas fa-utensils"></i> Yoğurt</button>
-        <button onclick="addPresetFood('Nescafe 3ü1')"><i class="fas fa-mug-hot"></i> Nescafe 3’ü 1 Arada</button>
+        <button onclick="addPresetFood('Nescafe 3ü1')"><i class="fas fa-mug-hot"></i> Nescafe 3’ü 1</button>
         <button onclick="addPresetFood('Protein Tozu')"><i class="fas fa-dumbbell"></i> Protein Tozu</button>
         <button onclick="addPresetFood('Creatin')"><i class="fas fa-dumbbell"></i> Creatin</button>
-
-
-
     </section>
 
     <section id="summary-section">
@@ -54,6 +52,7 @@
                     <th>Protein</th>
                     <th>Karbonhidrat</th>
                     <th>Yağ</th>
+                    <th>Porsiyon</th>
                     <th>İşlem</th>
                 </tr>
             </thead>
@@ -64,7 +63,7 @@
         <p id="water-total"></p>
     </section>
 
-<section id="water-section">
+    <section id="water-section">
         <h2>Su (0.5L)</h2>
         <div class="water-buttons">
             <button onclick="updateWater()"><i class="fas fa-tint"></i> +</button>
@@ -74,12 +73,8 @@
             <div id="water-progress" class="progress"></div>
         </div>
     </section>
-
-
 </main>
 
 <script src="script.js"></script>
 </body>
 </html>
-
-

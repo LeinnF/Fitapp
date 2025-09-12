@@ -120,10 +120,20 @@ tr:hover {
 
 /* Tablodaki Porsiyon inputunu küçült */
 #food-table-body input[type="number"] {
-    width: 50px;       /* genişlik 50px */
-    padding: 3px 5px;  /* biraz iç boşluk */
-    font-size: 0.9rem; /* yazı boyutu biraz küçültüldü */
-    text-align: center; /* sayı ortalanır */
+    width: 50px;
+    padding: 3px 5px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 5px;
+    text-align: center;
 }
 
 
@@ -202,3 +212,4 @@ tr:hover {
         text-align: left;
     }
 }
+

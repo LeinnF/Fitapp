@@ -14,14 +14,14 @@ if (!allData[today]) allData[today] = { foodData: [], water: 0 };
 
 const presetFoods = {
     'Pankek': {cal: 1010, protein: 29.8, carb: 39.5, fat: 18},
-    'Protein Tozu': {cal: 85, protein: 18.3, carb: 1.9, fat: 0.3},
+    'Protein Tozu(25g)': {cal: 85, protein: 18.3, carb: 1.9, fat: 0.3},
     'Tost': {cal: 920, protein: 44.5, carb: 99, fat: 39},
     'Tam Döner': {cal: 680, protein: 32, carb: 203, fat: 13},
     'Nescafe 3’ü 1 Arada': {cal: 81, protein: 0.51, carb: 15.6, fat: 1.94},
-    'Creatin': {cal: 0, protein: 0, carb: 0, fat: 0},
-    'Makarna(250g)': {cal: 395, protein: 14.5, carb: 77.1, fat: 2.3},
-    'Yoğurt(250g)': {cal: 115, protein: 8.5, carb: 10.2, fat: 3.7},
-    'Pilav(75g)': {cal: 99, protein: 2.2, carb: 23.2, fat: 0},
+    'Creatin(4g)': {cal: 0, protein: 0, carb: 0, fat: 0},
+    'Makarna(100g)': {cal: 158, protein: 5.8, carb: 30.8, fat: 0.9},
+    'Yoğurt(100g)': {cal: 46, protein: 3.4, carb: 4.1, fat: 1.5},
+    'Pilav(100g)': {cal: 132, protein: 2.9, carb: 30.9, fat: 0},
     'Tavuk(100g)': {cal: 163, protein: 28, carb: 1, fat: 5.3},
 };
 

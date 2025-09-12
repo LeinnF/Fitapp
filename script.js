@@ -103,6 +103,9 @@ function updateTable(selectedDate) {
 
     const water = allData[selectedDate].water || 0;
 
+animateProgressBar();
+
+
     document.getElementById('totals').innerHTML = `Toplam: Kalori ${Math.round(totalCal)} kcal | Protein ${totalProtein.toFixed(1)} g | Karbonhidrat ${totalCarb.toFixed(1)} g | Yağ ${totalFat.toFixed(1)} g`;
     document.getElementById('water-total').innerHTML = `Su: ${water.toFixed(1)} L / ${target.water} L`;
     document.getElementById('remaining').innerHTML = `Kalan: Kalori ${Math.round(target.cal - totalCal)} kcal | Protein ${(target.protein - totalProtein).toFixed(1)} g | Karbonhidrat ${(target.carb - totalCarb).toFixed(1)} g | Yağ ${(target.fat - totalFat).toFixed(1)} g`;
@@ -133,6 +136,15 @@ function removeWater() {
     saveData();
     updateTable(currentDate);
 }
+function animateProgressBar() {
+    const water = allData[currentDate].water || 0;
+    const percent = Math.min((water / target.water) * 100, 100);
+    const bar = document.getElementById('water-progress');
+    if (bar) {
+        bar.style.width = percent + '%';
+    }
+}
+
 
 function saveData() {
     localStorage.setItem('dailyData', JSON.stringify(allData));

@@ -27,6 +27,8 @@ const presetFoods = {
     'Creatin': {cal: 0, protein: 0, carb: 0, fat: 0},
     'Makarna': {cal: 395, protein: 14.5, carb: 77.1, fat: 2.3},
     'Yoğurt': {cal: 115, protein: 8.5, carb: 10.2, fat: 3.7},
+'Pilav': {cal: 99, protein: 2.2, carb: 23.2, fat: 0},
+'Tavuk': {cal: 163, protein: 28, carb: 1, fat: 5.3},
 };
 
 document.getElementById('date-picker').value = today;
@@ -42,33 +44,28 @@ function changeDate() {
     updateTable(currentDate);
 }
 
+// Besin eklerken artık multiplier (kaç kat) alınacak
 function addFood() {
     const name = document.getElementById('food-name').value.trim();
     const cal = parseFloat(document.getElementById('food-cal').value);
     const protein = parseFloat(document.getElementById('food-protein').value);
     const carb = parseFloat(document.getElementById('food-carb').value);
     const fat = parseFloat(document.getElementById('food-fat').value);
+    const multiplier = parseFloat(document.getElementById('food-multiplier').value) || 1; // yeni
 
     if (!name || isNaN(cal) || isNaN(protein) || isNaN(carb) || isNaN(fat)) {
         alert('Lütfen tüm alanları doldurun!');
         return;
     }
 
-    allData[currentDate].foodData.push({name, cal, protein, carb, fat});
+    allData[currentDate].foodData.push({name, cal, protein, carb, fat, multiplier}); // multiplier eklendi
     saveData();
     updateTable(currentDate);
     animateButton('addFood');
     clearFoodInputs();
 }
 
-function clearFoodInputs() {
-    document.getElementById('food-name').value = '';
-    document.getElementById('food-cal').value = '';
-    document.getElementById('food-protein').value = '';
-    document.getElementById('food-carb').value = '';
-    document.getElementById('food-fat').value = '';
-}
-
+// Preset yemek ekleme (hızlı eklemede de multiplier alabiliriz)
 function addPresetFood(name) {
     if (!presetFoods[name]) return;
     const food = presetFoods[name];
@@ -78,26 +75,12 @@ function addPresetFood(name) {
         cal: food.cal,
         protein: food.protein,
         carb: food.carb,
-        fat: food.fat
+        fat: food.fat,
+        multiplier: 1 // otomatik 1 porsiyon
     });
     saveData();
     updateTable(currentDate);
     animateButton(name);
-}
-
-
-
-
-function updateWater() {
-    allData[currentDate].water = (allData[currentDate].water || 0) + 0.5;
-    saveData();
-    updateTable(currentDate);
-}
-
-function removeWater() {
-    allData[currentDate].water = Math.max(0, (allData[currentDate].water || 0) - 0.5);
-    saveData();
-    updateTable(currentDate);
 }
 
 
@@ -107,25 +90,11 @@ function removeFood(index) {
     updateTable(currentDate);
 }
 
-// Dinamik progress bar animasyonu
-function animateProgressBar() {
-    const water = allData[currentDate].water || 0;
-    const percent = Math.min((water / target.water) * 100, 100);
-    document.getElementById('water-progress').style.width = percent + '%';
-}
+// Global scope'a bağlayalım
+window.removeFood = removeFood;
 
-function animateButton(buttonName) {
-    const buttons = document.querySelectorAll('#quick-food-section button, #input-section button');
-    buttons.forEach(btn => {
-        if (btn.textContent.includes(buttonName) || btn.id === buttonName) {
-            btn.classList.add('active');
-            setTimeout(() => {
-                btn.classList.remove('active');
-            }, 200);
-        }
-    });
-}
 
+// updateTable fonksiyonu artık multiplier ile çarpacak
 function updateTable(selectedDate) {
     const tbody = document.getElementById('food-table-body');
     tbody.innerHTML = '';
@@ -135,20 +104,30 @@ function updateTable(selectedDate) {
     if (!allData[selectedDate]) return;
 
     allData[selectedDate].foodData.forEach((food, index) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-        <td data-label="Besin">${food.name}</td>
-        <td data-label="Kalori">${food.cal}</td>
-        <td data-label="Protein">${food.protein}</td>
-        <td data-label="Karbonhidrat">${food.carb}</td>
-        <td data-label="Yağ">${food.fat}</td>
-        <td data-label="İşlem"><button onclick="removeFood(${index})">Sil</button></td>
-    `;
+        const cal = food.cal * food.multiplier;
+        const protein = food.protein * food.multiplier;
+        const carb = food.carb * food.multiplier;
+        const fat = food.fat * food.multiplier;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td data-label="Besin">${food.name}</td>
+            <td data-label="Kalori">${cal}</td>
+            <td data-label="Protein">${protein.toFixed(1)}</td>
+            <td data-label="Karbonhidrat">${carb.toFixed(1)}</td>
+            <td data-label="Yağ">${fat.toFixed(1)}</td>
+            <td data-label="Porsiyon">
+                <input type="number" min="1" value="${food.multiplier}" 
+                    onchange="updateMultiplier(${index}, this.value)">
+            </td>
+            <td data-label="İşlem"><button onclick="removeFood(${index})">Sil</button></td>
+        `;
         tbody.appendChild(row);
-        totalCal += food.cal;
-        totalProtein += food.protein;
-        totalCarb += food.carb;
-        totalFat += food.fat;
+
+        totalCal += cal;
+        totalProtein += protein;
+        totalCarb += carb;
+        totalFat += fat;
     });
 
     const water = allData[selectedDate].water || 0;
@@ -160,6 +139,30 @@ function updateTable(selectedDate) {
     animateProgressBar();
 }
 
+function updateMultiplier(index, value) {
+    const multiplier = parseFloat(value);
+    if (multiplier < 1 || isNaN(multiplier)) return;
+    allData[currentDate].foodData[index].multiplier = multiplier;
+    saveData();
+    updateTable(currentDate);
+}
+
+// Global scope
+window.updateMultiplier = updateMultiplier;
+
+
+
+// clearFoodInputs fonksiyonuna multiplier inputu ekle
+function clearFoodInputs() {
+    document.getElementById('food-name').value = '';
+    document.getElementById('food-cal').value = '';
+    document.getElementById('food-protein').value = '';
+    document.getElementById('food-carb').value = '';
+    document.getElementById('food-fat').value = '';
+    document.getElementById('food-multiplier').value = 1; // varsayılan
+}
+
+
 function saveData() {
     localStorage.setItem('dailyData', JSON.stringify(allData));
 }
@@ -169,7 +172,6 @@ function loadData() {
 }
 
 window.onload = loadData;
-
 
 
 

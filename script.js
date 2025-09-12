@@ -17,12 +17,12 @@ const presetFoods = {
     'Protein Tozu': {cal: 85, protein: 18.3, carb: 1.9, fat: 0.3},
     'Tost': {cal: 920, protein: 44.5, carb: 99, fat: 39},
     'Tam Döner': {cal: 680, protein: 32, carb: 203, fat: 13},
-    'Nescafe 3ü1': {cal: 81, protein: 0.51, carb: 15.6, fat: 1.94},
+    'Nescafe 3’ü 1 Arada': {cal: 81, protein: 0.51, carb: 15.6, fat: 1.94},
     'Creatin': {cal: 0, protein: 0, carb: 0, fat: 0},
-    'Makarna': {cal: 395, protein: 14.5, carb: 77.1, fat: 2.3},
-    'Yoğurt': {cal: 115, protein: 8.5, carb: 10.2, fat: 3.7},
-    'Pilav': {cal: 99, protein: 2.2, carb: 23.2, fat: 0},
-    'Tavuk': {cal: 163, protein: 28, carb: 1, fat: 5.3},
+    'Makarna(250g)': {cal: 395, protein: 14.5, carb: 77.1, fat: 2.3},
+    'Yoğurt(250g)': {cal: 115, protein: 8.5, carb: 10.2, fat: 3.7},
+    'Pilav(75g)': {cal: 99, protein: 2.2, carb: 23.2, fat: 0},
+    'Tavuk(100g)': {cal: 163, protein: 28, carb: 1, fat: 5.3},
 };
 
 document.getElementById('date-picker').value = today;

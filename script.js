@@ -23,7 +23,9 @@ const presetFoods = {
     'Yoğurt(100g)': {cal: 46, protein: 3.4, carb: 4.1, fat: 1.5},
     'Pilav(100g)': {cal: 132, protein: 2.9, carb: 30.9, fat: 0},
     'Tavuk(100g)': {cal: 163, protein: 28, carb: 1, fat: 5.3},
-    'Shake': {cal: 610, protein: 38, carb: 72, fat: 14},
+'Shake': {cal: 610, protein: 38, carb: 72, fat: 14},
+'Yumurta(M)': {cal: 72, protein: 6.2, carb: 0.3, fat: 4.7},
+'Kaşar Peynir(20g)': {cal: 66, protein: 4.6, carb: 0.4, fat: 5},
 };
 
 document.getElementById('date-picker').value = today;
@@ -152,4 +154,3 @@ function saveData() {
 }
 
 window.onload = () => updateTable(currentDate);
-

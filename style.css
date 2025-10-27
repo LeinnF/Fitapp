@@ -213,12 +213,12 @@ table th, table td {
     }
 
 #recipes-content {
-    display: none !important; /* Başlangıçta kapalı */
+    display: none; /* Başlangıçta kapalı */
     margin-top: 10px;
 }
 
 .recipe-content {
-    display: none !important; /* Her tarifin içeriği kapalı */
+    display: none; /* Her tarifin içeriği kapalı */
     padding: 10px 15px;
     margin-bottom: 10px;
     border-left: 3px solid #2a4d69;
@@ -243,6 +243,19 @@ table th, table td {
     background-color: #ff7f50;
 }
 
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .recipe-toggle {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .recipe-content {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+}
+
 
 
 
@@ -250,5 +263,6 @@ table th, table td {
 
     
 }
+
 
 

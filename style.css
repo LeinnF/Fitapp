@@ -211,5 +211,44 @@ table th, table td {
         font-weight: bold;
         text-align: left;
     }
+
+#recipes-content {
+    display: none !important; /* Başlangıçta kapalı */
+    margin-top: 10px;
 }
+
+.recipe-content {
+    display: none !important; /* Her tarifin içeriği kapalı */
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-left: 3px solid #2a4d69;
+    background-color: #f0f2f5;
+    border-radius: 5px;
+}
+
+.recipe-toggle {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background-color: #2a4d69;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.recipe-toggle:hover {
+    background-color: #ff7f50;
+}
+
+
+
+
+
+
+    
+}
+
 

@@ -32,6 +32,7 @@ const presetFoods = {
 
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const recipesHeader = document.getElementById('recipes-header');
     const recipesContent = document.getElementById('recipes-content');
@@ -195,5 +196,6 @@ function saveData() {
 }
 
 window.onload = () => updateTable(currentDate);
+
 
 

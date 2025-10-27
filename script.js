@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const recipesHeader = document.getElementById('recipes-header');
     const recipesContent = document.getElementById('recipes-content');
 
-    // Başlangıçta kapalı olduğundan emin ol
+    // Başlangıçta kapalı
     recipesContent.style.display = 'none';
     document.querySelectorAll('.recipe-content').forEach(rc => rc.style.display = 'none');
 
@@ -195,4 +195,5 @@ function saveData() {
 }
 
 window.onload = () => updateTable(currentDate);
+
 

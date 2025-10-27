@@ -18,7 +18,7 @@ const presetFoods = {
     'Tost': {cal: 920, protein: 44.5, carb: 99, fat: 39},
     'Tam Döner': {cal: 680, protein: 32, carb: 203, fat: 13},
     'Nescafe 3’ü 1 Arada': {cal: 81, protein: 0.51, carb: 15.6, fat: 1.94},
-    'Creatin(4g)': {cal: 0, protein: 0, carb: 0, fat: 0},
+    'Creatin(5g)': {cal: 0, protein: 0, carb: 0, fat: 0},
     'Makarna(100g)': {cal: 158, protein: 5.8, carb: 30.8, fat: 0.9},
     'Yoğurt(100g)': {cal: 46, protein: 3.4, carb: 4.1, fat: 1.5},
     'Pilav(100g)': {cal: 132, protein: 2.9, carb: 30.9, fat: 0},
@@ -196,6 +196,7 @@ function saveData() {
 }
 
 window.onload = () => updateTable(currentDate);
+
 
 
 

@@ -30,6 +30,45 @@ const presetFoods = {
 'Kaşar Peynir(20g)': {cal: 66, protein: 4.6, carb: 0.4, fat: 5},
 };
 
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const recipesHeader = document.getElementById('recipes-header');
+    const recipesContent = document.getElementById('recipes-content');
+
+    // Başlangıçta kapalı olduğundan emin ol
+    recipesContent.style.display = 'none';
+    document.querySelectorAll('.recipe-content').forEach(rc => rc.style.display = 'none');
+
+    // Tarifler başlığına tıklayınca tüm tarifler açılır/kapanır
+    recipesHeader.addEventListener('click', () => {
+        if (recipesContent.style.display === 'block') {
+            recipesContent.style.display = 'none';
+            recipesHeader.innerHTML = 'Tarifler &#9660;';
+        } else {
+            recipesContent.style.display = 'block';
+            recipesHeader.innerHTML = 'Tarifler &#9650;';
+        }
+    });
+
+    // Her tarifin içeriğini aç/kapat
+    document.querySelectorAll('.recipe-toggle').forEach(btn => {
+        const content = btn.nextElementSibling;
+        btn.addEventListener('click', () => {
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                btn.innerHTML = btn.innerHTML.replace('▼', '►');
+            } else {
+                content.style.display = 'block';
+                btn.innerHTML = btn.innerHTML.replace('►', '▼');
+            }
+        });
+    });
+});
+
+
+
+
 document.getElementById('date-picker').value = today;
 
 function changeDate() {
@@ -156,3 +195,4 @@ function saveData() {
 }
 
 window.onload = () => updateTable(currentDate);
+

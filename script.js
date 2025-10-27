@@ -27,7 +27,7 @@ const presetFoods = {
 'Shake': {cal: 775, protein: 40, carb: 113, fat: 18},
 'Yumurta(L)': {cal: 90, protein: 7.5, carb: 0.3, fat: 6.5},
 'Menemen Harcı(350g)': {cal: 180, protein: 5.6, carb: 15, fat: 10},
-'Kaşar Peynir(20g)': {cal: 66, protein: 4.6, carb: 0.4, fat: 5},
+'Kaşar Peynir(Dilim)': {cal: 66, protein: 4.6, carb: 0.4, fat: 5},
 };
 
 
@@ -196,6 +196,7 @@ function saveData() {
 }
 
 window.onload = () => updateTable(currentDate);
+
 
 
 
